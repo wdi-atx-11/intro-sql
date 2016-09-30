@@ -308,7 +308,7 @@ SELECT DISTINCT ON (name) *
 
 ```
 SELECT SUM(quantity) AS total_inventory_count from products;
-SELECT name, MIN(price) AS lowest_avaialable_price
+SELECT name, MIN(price) AS lowest_available_price
 FROM products
 GROUP BY name
 ORDER BY lowest_avaialable_price;
