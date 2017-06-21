@@ -1,6 +1,6 @@
 # ![](https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67) In which we suffer through SQL to appreciate Active Record & ORMS in general  
 
-##What is a Relational Database (RDB)?
+## What is a Relational Database (RDB)?
 
 Relational databases were invented in the 1970's as a way to structure data so that it can be queried by a "relational algebra." The basic idea of relational model, though, was to use collections of data, Tables, where each database manages Relations among the data in various tables. Each table is organized like a spreadsheet with a Row (also known as "record") for each data item and with attributes of those items arranged in Columns*.
 
@@ -25,7 +25,7 @@ Relational databases were invented in the 1970's as a way to structure data so t
 
 **Primary Key:** The primary key of a relational table uniquely identifies each record in the table. This column is automatically assigned a btree index in postgres.
 
-##What is SQL?
+## What is SQL?
 
 SQL, Structured Query Language, is a specialized language used to create, manipulate, and query tables in relational databases.
 
@@ -44,9 +44,9 @@ SQL, Structured Query Language, is a specialized language used to create, manipu
 - Data Control Language (beyond our scope)
 	- GRANT access to parts of the table
 
-##Creating and Modifying RDB Structure
+## Creating and Modifying RDB Structure
 
-#Database Setup
+# Database Setup
 
 Let's create our first relational database (RDB) using the Terminal.
 
@@ -69,7 +69,7 @@ To quit/exit the database console, type:
 * Don't forget to close your SQL Commands with a semi-colon (";")!
 * If you see `practice-#` you're stuck in the middle of inputting a sql command (and likely forgot the trailing semi-colon). Just type `ctrl+c` to start fresh.
   
-#Workflow Setup
+# Workflow Setup
 
 To save your progress on the in-class examples and the challenges, I suggest creating files that store your SQL commands. To run a `.sql` file, use the following command in your terminal:
 
@@ -90,7 +90,7 @@ Feel free to use the `pqsl` console to try out the following. Once you're comfor
 
 If you would like to load, execute, and save `.sql` files in a safe, nurturing sandbox environment, head on over to this [online SQL interpreter](http://kripken.github.io/sql.js/GUI/). It's handy!
 
-#Our First Table
+# Our First Table
 
 Now let's try to create our first Table within the new database. Note: please feel free to shorten attribute names so they're easier to type.
 
@@ -109,7 +109,7 @@ CREATE TABLE author (
 - `MORE DATA TYPES`
 
 
-#Altering Tables and Columns
+# Altering Tables and Columns
 
 We can ALTER this table after is created.
 
@@ -140,7 +140,7 @@ Let's DROP our table!
 DROP TABLE authors;
 ```
 
-##Creating, Reading, Updating, and Deleting data in our RDB
+## Creating, Reading, Updating, and Deleting data in our RDB
 
 The library's having a fundraiser! Here's another table we might have in the database:
 
@@ -152,7 +152,7 @@ CREATE TABLE products (
   quantity INTEGER NOT NULL DEFAULT 0
 );
 ```
-#Inserting Data into RDB
+# Inserting Data into RDB
 
 How do we get data into a table? With INSERT!
 
@@ -171,7 +171,7 @@ Let's add a few more items to our products table
 'reading light', 25.00, 10
 ```
 
-#Reading Data from RDB
+# Reading Data from RDB
 
 To retrieve data from inside our database, we use the command SELECT.
 
@@ -213,7 +213,7 @@ SELECT * FROM products
   WHERE name LIKE 'book%';
 ```
 
-#Updating Simple Data in the RDB
+# Updating Simple Data in the RDB
 
 So far we've had a great time using SELECT to read data from our TABLE. We can also change data. Here comes our first sale, a bookmark!
 
@@ -240,7 +240,7 @@ UPDATE products
   RETURNING *;
 ```
 
-#Deleting Simple Data from an RDB
+# Deleting Simple Data from an RDB
 
 Let's remove a row in our products table. Book covers don't sell that well.
 
@@ -268,7 +268,7 @@ DELETE FROM products;
 ![Bobby Tables, at it again!](http://imgs.xkcd.com/comics/exploits_of_a_mom.png)
 
 
-#ALIAS
+# ALIAS
 
 You can make your queries easier to read using an alias. Aliases in SQL use the keyword AS.
 
@@ -285,7 +285,7 @@ SELECT name, price AS cost, quantity  -- alias for the price column only
 ```
 Note also that `--` starts a SQL comment.
 
-#DISTINCT
+# DISTINCT
 
 We can use selection to filter out rows that aren't distinct. First, let's add duplicate bookbag records.
 
@@ -304,7 +304,7 @@ SELECT DISTINCT ON (name) *
   FROM products;
 ```
 
-#Aggregation
+# Aggregation
 
 ```
 SELECT SUM(quantity) AS total_inventory_count from products;
