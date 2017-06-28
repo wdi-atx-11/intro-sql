@@ -1,4 +1,4 @@
-#Challenges
+# Challenges
 
 
 1. Use SQL aggregators to get the total value of the inventory, calculated as the sum of the price*quantity for each item.
@@ -11,7 +11,7 @@
 
 5. Insert the books from your books table into your products table. Make up a price and quantity for them.
 
-#Stretch Challenges
+# Stretch Challenges
 
 1.  Find the inventory value of each book, and sort the records by inventory value, in descending order.
 
